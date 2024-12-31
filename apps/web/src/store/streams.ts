@@ -26,7 +26,7 @@ export const useStreamsStore = create<StreamsState>((set, get) => ({
     set({ localStream: null, peersStream: new Map() });
   },
 
-  isVideoEnabled: false,
+  isVideoEnabled: true,
   setLocalVideo: async (enableVideo, peers) => {
     const { localStream } = get();
     

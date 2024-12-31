@@ -37,7 +37,7 @@ export default function Level() {
             }
           ]}
           // TODO: Be sure to remove this line in PROD
-          // disableLoader
+          disableLoader
         />
 
         <Ground />

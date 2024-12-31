@@ -15,7 +15,6 @@ export default function Players() {
   
   const { localStream, peersStream } = useStreamsStore();
 
-  
   const currentPlayer = getCurrentPlayer();
 
   if (!currentPlayer) return null;

@@ -87,7 +87,7 @@ export default class Server extends BasePartyServer implements Party.Server {
     
     this.emitWithout(WebSocketEvents.USER_JOINED, {
       id: connection.id,
-    }, []);
+    }, [connection.id]);
 
     this.emitTo(WebSocketEvents.EXISTING_USERS, {
       "users": this.getConnectionIds([connection.id]),

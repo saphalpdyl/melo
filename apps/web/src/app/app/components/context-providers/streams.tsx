@@ -48,11 +48,11 @@ export default function StreamsProvider({
     };
 
     pc.ontrack = event => {
+      console.log("GOT EVENT: ", event);
       useStreamsStore.setState(state => ({
         peersStream: new Map(state.peersStream.set(userId, event.streams[0]))
       }));
     };
-    
 
     stream?.getTracks().forEach(track => pc.addTrack(track, stream));
     return pc;

@@ -41,9 +41,9 @@ export default function VideoSection() {
       const newStream = await navigator.mediaDevices.getUserMedia({ video: true });
       const track = newStream.getVideoTracks()[0];
 
-      localStream?.addTrack(track, newStream);
+      localStream?.addTrack(track);
       peersRef.current.forEach(async (pc, peerId) => {
-        pc.addTrack(track);
+        pc.addTrack(track, newStream);
 
         try {
           const offer = await pc.createOffer();

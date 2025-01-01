@@ -22,12 +22,6 @@ export default function VideoSection() {
   const videoTrackRef = useRef<MediaStreamTrack>(null);
     
   const handleToggleVideo = async () => {
-    // const me = peersRef.current.get(socket!.id);
-
-    // console.log(socket!.id);
-    // console.log(peersRef.current);
-    // console.log(me);
-
     if ( localStream!.getVideoTracks().length >= 1 ) {
       
       peersRef.current.forEach((pc, peerId) => {
@@ -42,23 +36,12 @@ export default function VideoSection() {
         isVideoEnabled: false,
       });
   
-      // const senders = me?.getSenders();
-      // const videoSender = senders?.find(s => s.track?.kind === "video");
-  
-      // if ( videoSender ) {
-      //   videoTrackRef.current = localStream!.getVideoTracks()[0];
-      //   me?.removeTrack(videoSender);
-      //   localStream?.removeTrack(localStream.getVideoTracks()[0]);
-      // }
     } else {
       
-      // const newStream = await navigator.mediaDevices.getUserMedia({ video: true });
-
-      // Just testing if screen share stream works or not ( it doesn't )
-      const newStream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: false});
+      const newStream = await navigator.mediaDevices.getUserMedia({ video: true });
       const track = newStream.getVideoTracks()[0];
 
-      localStream?.addTrack(track);
+      localStream?.addTrack(track, newStream);
       peersRef.current.forEach(async (pc, peerId) => {
         pc.addTrack(track);
 
@@ -80,22 +63,7 @@ export default function VideoSection() {
         isVideoEnabled: true,
       })
       
-      // if ( !videoTrackRef.current ) return console.log("OH SHITE! NO LOCAL VIDEO TRACK");
-      
-      // peersRef.current.forEach(async (pc, peerId) => {
-      //   pc.addTrack(videoTrackRef.current!);
-      //   const offer = await me?.createOffer();
-      //   await me?.setLocalDescription(offer);
-      //   // Send to other guys
-      //   socket?.emit(WebSocketEvents.P2P_OFFER, {
-      //     offer,
-      //     to: peerId,
-      //   });
-      // })
-      
     }
-
-    // toggleLocalVideo(peersRef.current);
   }
   
   return (

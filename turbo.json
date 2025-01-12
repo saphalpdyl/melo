@@ -16,7 +16,7 @@
         "NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID",
         "NEXT_PUBLIC_FIREBASE_APP_ID"
       ],
-      "dependsOn": ["^build"],
+      "dependsOn": ["ui#build"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "dev": {

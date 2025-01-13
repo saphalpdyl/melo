@@ -4,7 +4,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**", ".vercel/**"]
+      "outputs": [".next/**", "!.next/cache/**", ".vercel/**", "dist/**"]
     },
     "web#build": {
       "env": [
@@ -17,7 +17,7 @@
         "NEXT_PUBLIC_FIREBASE_APP_ID"
       ],
       "dependsOn": ["ui#build"],
-      "outputs": [".next/**", "!.next/cache/**", ".vercel/**"]
+      "outputs": [".next/**", "!.next/cache/**", ".vercel/**", "dist/**"]
     },
     "dev": {
       "persistent": true,

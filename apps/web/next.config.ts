@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: false,
+  transpilePackages: ["@melo/ui"],
   images: {
     remotePatterns: [
       {
